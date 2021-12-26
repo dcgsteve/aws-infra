@@ -4,11 +4,35 @@ resource "aws_security_group" "allow_ssh_sg" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description      = "SSH for admins"
+    description      = "Admin SSH access"
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
     cidr_blocks      = ["213.205.242.167/32"]
+  }
+
+  ingress {
+    description      = "Admin NPM access"
+    from_port        = 81
+    to_port          = 81
+    protocol         = "tcp"
+    cidr_blocks      = ["213.205.242.167/32"]
+  }
+
+  ingress {
+    description      = "HTTP access"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description      = "HTTPS access"
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   egress {
@@ -20,7 +44,7 @@ resource "aws_security_group" "allow_ssh_sg" {
   }
 
   tags = {
-    Name = "admin ssh"
+    Name = "admin"
   }
 }
 

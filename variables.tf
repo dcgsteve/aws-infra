@@ -25,5 +25,6 @@ variable "dev_ami" {
 
 variable "dev_type" {
   type = string
-  default = "t3.xlarge"
+  #default = "t3.xlarge"
+  default = "t2.micro"
 }
