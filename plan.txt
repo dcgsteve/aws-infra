@@ -1,0 +1,121 @@
+aws_vpc.vpc: Refreshing state... [id=vpc-05d43c38b98b68df6]
+aws_eip.nat: Refreshing state... [id=eipalloc-04d0f1127f97fa600]
+aws_internet_gateway.igw: Refreshing state... [id=igw-098f809ca539fc562]
+aws_subnet.prisub1: Refreshing state... [id=subnet-0b469b3bd7a435068]
+aws_subnet.pubsub2: Refreshing state... [id=subnet-0f0e6316b70903d64]
+aws_subnet.prisub2: Refreshing state... [id=subnet-056b0a4f2450bbc63]
+aws_subnet.pubsub1: Refreshing state... [id=subnet-00319772aa5b4eda4]
+aws_route_table.routetablepublic: Refreshing state... [id=rtb-014a490790e61a9b8]
+aws_nat_gateway.ngw: Refreshing state... [id=nat-0f06b24a3bd58402d]
+aws_route_table.routetableprivate: Refreshing state... [id=rtb-0b0e327a8cb39128e]
+aws_route_table_association.pubrtas2: Refreshing state... [id=rtbassoc-0f9b94f34d5220608]
+aws_route_table_association.pubrtas1: Refreshing state... [id=rtbassoc-011ae1e0a024e0d01]
+aws_route_table_association.prirtas2: Refreshing state... [id=rtbassoc-0979f0081cee44284]
+aws_route_table_association.prirtas1: Refreshing state... [id=rtbassoc-0300f2c9306e50049]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply":
+
+  # aws_route_table.routetableprivate has changed
+  ~ resource "aws_route_table" "routetableprivate" {
+        id               = "rtb-0b0e327a8cb39128e"
+      ~ route            = [
+          + {
+              + carrier_gateway_id         = ""
+              + cidr_block                 = "0.0.0.0/0"
+              + destination_prefix_list_id = ""
+              + egress_only_gateway_id     = ""
+              + gateway_id                 = ""
+              + instance_id                = ""
+              + ipv6_cidr_block            = ""
+              + local_gateway_id           = ""
+              + nat_gateway_id             = "nat-0f06b24a3bd58402d"
+              + network_interface_id       = ""
+              + transit_gateway_id         = ""
+              + vpc_endpoint_id            = ""
+              + vpc_peering_connection_id  = ""
+            },
+          - {
+              - carrier_gateway_id         = ""
+              - cidr_block                 = "0.0.0.0/0"
+              - destination_prefix_list_id = ""
+              - egress_only_gateway_id     = ""
+              - gateway_id                 = "nat-0f06b24a3bd58402d"
+              - instance_id                = ""
+              - ipv6_cidr_block            = ""
+              - local_gateway_id           = ""
+              - nat_gateway_id             = ""
+              - network_interface_id       = ""
+              - transit_gateway_id         = ""
+              - vpc_endpoint_id            = ""
+              - vpc_peering_connection_id  = ""
+            },
+        ]
+        tags             = {
+            "Name" = "apsedge-dc-prirt"
+        }
+        # (5 unchanged attributes hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_route_table.routetableprivate will be updated in-place
+  ~ resource "aws_route_table" "routetableprivate" {
+        id               = "rtb-0b0e327a8cb39128e"
+      ~ route            = [
+          - {
+              - carrier_gateway_id         = ""
+              - cidr_block                 = "0.0.0.0/0"
+              - destination_prefix_list_id = ""
+              - egress_only_gateway_id     = ""
+              - gateway_id                 = ""
+              - instance_id                = ""
+              - ipv6_cidr_block            = ""
+              - local_gateway_id           = ""
+              - nat_gateway_id             = "nat-0f06b24a3bd58402d"
+              - network_interface_id       = ""
+              - transit_gateway_id         = ""
+              - vpc_endpoint_id            = ""
+              - vpc_peering_connection_id  = ""
+            },
+          + {
+              + carrier_gateway_id         = ""
+              + cidr_block                 = "0.0.0.0/0"
+              + destination_prefix_list_id = ""
+              + egress_only_gateway_id     = ""
+              + gateway_id                 = "nat-0f06b24a3bd58402d"
+              + instance_id                = ""
+              + ipv6_cidr_block            = ""
+              + local_gateway_id           = ""
+              + nat_gateway_id             = ""
+              + network_interface_id       = ""
+              + transit_gateway_id         = ""
+              + vpc_endpoint_id            = ""
+              + vpc_peering_connection_id  = ""
+            },
+        ]
+        tags             = {
+            "Name" = "apsedge-dc-prirt"
+        }
+        # (5 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
