@@ -8,12 +8,22 @@ variable "key_name" {
   default = "apsedge-dev-clients"
 }
 
-variable "ami" {
+variable "bastion_ami" {
   type = string
   default = "ami-08ca3fed11864d6bb"
 }  
 
-variable "instance_type" {
+variable "bastion_type" {
   type = string
   default = "t2.micro"
+}
+
+variable "dev_ami" {
+  type = string
+  default = "ami-08ca3fed11864d6bb"
+}  
+
+variable "dev_type" {
+  type = string
+  default = "t3.xlarge"
 }
