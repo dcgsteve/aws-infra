@@ -8,23 +8,21 @@ variable "key_name" {
   default = "apsedge-dev-clients"
 }
 
-variable "bastion_ami" {
-  type = string
-  default = "ami-08ca3fed11864d6bb"
-}  
-
 variable "bastion_type" {
   type = string
   default = "t2.micro"
 }
 
-variable "dev_ami" {
+variable "ami_ubuntu" {
   type = string
   default = "ami-08ca3fed11864d6bb"
 }  
 
-variable "dev_type" {
+variable "dev_type_large" {
   type = string
   default = "t3.xlarge"
-  #default = "t2.micro"
+}
+variable "dev_type_medium" {
+  type = string
+  default = "t3.medium"
 }
