@@ -10,7 +10,8 @@ resource "aws_instance" "bastion" {
   }
 }
 
-resource "aws_instance" "devbox1" {
+# Steve Cliff
+resource "aws_instance" "dc-uk02919" {
   ami                    = var.dev_ami
   instance_type          = var.dev_type
   key_name               = var.key_name
@@ -18,6 +19,6 @@ resource "aws_instance" "devbox1" {
   vpc_security_group_ids = [ aws_security_group.allow_bastion_sg.id ]
   subnet_id              = aws_subnet.prisub1.id
   tags = {
-    Name = "apsedge-dc-devbox1"
+    Name = "apsedge-dc-uk02919"
   }
 }
