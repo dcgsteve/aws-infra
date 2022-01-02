@@ -11,7 +11,7 @@ resource "aws_instance" "bastion" {
 }
 
 # Steve Cliff
-resource "aws_instance" "dc-uk02919" {
+resource "aws_instance" "uk02919a" {
   ami                    = var.ami_ubuntu
   instance_type          = var.dev_type_large
   key_name               = var.key_name
@@ -19,7 +19,7 @@ resource "aws_instance" "dc-uk02919" {
   vpc_security_group_ids = [ aws_security_group.allow_bastion_sg.id ]
   subnet_id              = aws_subnet.prisub1.id
   tags = {
-    Name = "db-uk02919"
+    Name = "db-uk02919a"
     Contact = "Steve Cliff"
   }
 }
